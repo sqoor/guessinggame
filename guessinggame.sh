@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # File: guessinggame.sh
 
 function guess_files {
@@ -9,13 +8,11 @@ function guess_files {
 		read user_input
 
 		files_count=$(ls -l | grep "^-" | wc -l)
-
-		echo "Acctual Count: $files_count"
-		echo "User Guess: $user_input"
 		
 		if [[ $files_count -eq $user_input ]]
 		then 
 			echo "Congradulations! you guessed correctly"
+			break
 		elif [[ $files_count -lt $user_input ]]
 		then
 			echo "Too High!"
@@ -24,3 +21,5 @@ function guess_files {
 		fi
 	done
 }
+
+guess_files
